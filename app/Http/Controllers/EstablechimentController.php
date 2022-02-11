@@ -3,19 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Establechiment;
+use App\Models\Categorie;
 use Illuminate\Http\Request;
 
 class EstablechimentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +16,12 @@ class EstablechimentController extends Controller
      */
     public function create()
     {
-        //
+
+       //consulta hacia las categorias
+       $categorie = Categorie::all(); 
+
+       return view('establishment.create')
+                                         ->with('categorie', $categorie);
     }
 
     /**
@@ -57,7 +54,7 @@ class EstablechimentController extends Controller
      */
     public function edit(Establechiment $establechiment)
     {
-        //
+      return view('establishment.edit');
     }
 
     /**
